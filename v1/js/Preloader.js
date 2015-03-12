@@ -11,7 +11,7 @@ BasicGame.Preloader = function (game) {
 BasicGame.Preloader.prototype = {
 
 	preload: function () {
-
+		//alert('Preloader1');
 		//	These are the assets we loaded in Boot.js
 		//	A nice sparkly background and a loading progress bar
 		this.background = this.add.sprite(0, 0, 'preloaderBackground');
@@ -25,8 +25,13 @@ BasicGame.Preloader.prototype = {
 		//	Here we load the rest of the assets our game needs.
 		//	As this is just a Project Template I've not provided these assets, swap them for your own.
 		//this.load.image('titlepage', 'images/title.jpg');
-		this.load.image('titlepage', 'images/logo.png');
+		//this.load.image('titlepage', 'images/logo.png');
 		//this.load.atlas('playButton', 'images/play_button.png', 'images/play_button.json');
+		this.load.atlas('playButton', 'images/button_texture_atlas.png', 'images/button_texture_atlas.json');
+		this.load.tilemap('map', 'tilemaps/mp2.csv', null, Phaser.Tilemap.CSV);
+		this.load.tilemap('mapJSON', 'tilemaps/mp2_teste.json', null, Phaser.Tilemap.JASON);
+		this.load.spritesheet('spritemap', 'images/tileset-platformer.png', 32, 32);
+		this.load.spritesheet('dude', 'sprite/dude.png', 32, 48);
 		//this.load.audio('titleMusic', ['audio/main_menu.mp3']);
 		//this.load.bitmapFont('caslon', 'fonts/caslon.png', 'fonts/caslon.xml');
 		//	+ lots of other required assets here
@@ -34,14 +39,14 @@ BasicGame.Preloader.prototype = {
 	},
 
 	create: function () {
-
+		//alert('Preloader2');
 		//	Once the load has finished we disable the crop because we're going to sit in the update loop for a short while as the music decodes
-		this.preloadBar.cropEnabled = false;
+		//this.preloadBar.cropEnabled = false;
 
 	},
 
 	update: function () {
-
+		//alert('Preloader3');
 		//	You don't actually need to do this, but I find it gives a much smoother game experience.
 		//	Basically it will wait for our audio file to be decoded before proceeding to the MainMenu.
 		//	You can jump right into the menu if you want and still play the music, but you'll have a few
